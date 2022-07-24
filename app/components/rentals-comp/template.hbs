@@ -1,0 +1,16 @@
+<div class="rentals">
+  <label>
+    <span>Where would you like to stay?</span>
+    {{input type="text" class="light" value=query}}
+  </label>
+  <ul class="results">
+    {{#rentals-comp/filter-comp rentals=this.rentals query=this.query as |results| }}
+      <p>Query searched : {{this.query}}, Results length : {{results.length}}</p>
+      {{#each this.rentals as |rental|}}
+        <li>
+          {{#rental-comp rental=rental }}{{/rental-comp}}
+        </li>
+      {{/each}}
+    {{/rentals-comp/filter-comp}}
+  </ul>
+</div>
